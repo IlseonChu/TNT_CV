@@ -99,7 +99,7 @@
                    3) No overlap
 - True Positive : Detection 성공한 경우
 
-## mean Average Precision (mAP)
+## 정밀도와 재현율
 
 **: Object Detection 성능 평가 지표**
 
@@ -118,4 +118,11 @@
 
 > 임계값 높을수록 bounding box 신중. 정밀도 증가, 재현율 감소
 
+## mean Average Precision (mAP)
 
+**<정밀도 재현율 곡선>**
+<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132122554-7905d9d3-3ebe-4ecf-9885-330a3d50c6ca.png width = 400></p>
+
+- Recall 값에 대응하는 Precision 값 나타낸 그래프.
+
+- 그래프 아래 면적이 AP 값이고, 여러 오브젝트들의 AP 값을 평균낸 것이 mAP.
