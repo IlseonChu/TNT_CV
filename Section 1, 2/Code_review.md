@@ -66,14 +66,14 @@ IOU = intersection / union 이므로 maximum, minimum 값 더하고 빼서 구�
 
 **2. 디렉토리 내 임의의 Image 파일과 Annotation 파일 보기**
 
-**Image 파일**
+**- Image 파일**
 <p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132191984-b73e05c2-37c2-47f2-8c84-7992eab14117.GIF width = 600></p>
 
 `.imread()`, `.cvtColor()`, `.imshow()` 사용해 이미지 시각화
 
 `os.path.join()`으로 상세 파일과 디렉토리를 지정함.
 
-**Annotation 파일**
+**- Annotation 파일**
 <p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132192085-0783dc0b-c8b6-4c7c-ae40-175e7cbed9ff.GIF width = 400></p>
 
 `!cat` 사용해서 annotation 파일을 볼 수 있음.
@@ -81,7 +81,7 @@ IOU = intersection / union 이므로 maximum, minimum 값 더하고 빼서 구�
 **3. ElementTree를 이용해 XML 파싱하기**
 <p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132193504-2ead7915-63b7-4f35-8c79-16d23ac5e624.GIF width = 400></p>
 
-**: VOC2012 파일, Annotation 파일, JPEGImages 파일의 경로를 변수에 저장하는 코드**
+- VOC2012 파일, Annotation 파일, JPEGImages 파일의 경로를 변수에 저장하는 코드
 
 <p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132193521-af9aa4c4-0857-4ef2-90cc-f2d5414a3feb.GIF width = 600></p>
 
