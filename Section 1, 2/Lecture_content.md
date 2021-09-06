@@ -78,6 +78,8 @@
  
  **따라서, Confidence score가 높고, IOU threshold가 낮을수록 많은 Box가 제거됨.**
  
+ * * *
+ 
 ## Intersection Over Union (IOU)
 
 **: Ground Truth Box와 Predicted Box가 겹치는 정도를 0에서 1 사이의 값으로 나타낸 것.**
@@ -188,13 +190,15 @@ json 포맷인 하나의 파일에 annotation 정보 모두 들어있음.
 - Windows, 리눅스, Mac OS X, 안드로이드, i-OS 등 다양한 플랫폼에서 사용 가능
 - 방대한 Computer Vision 라이브러리와 손쉬운 인터페이스 제공이 특징임
 
-**1. 이미지 로딩**
-- .imread('파일명') 을 이용해, 파일을 읽고 numpy array로 변환.
-- 이 때, 파일이 RGB가 아닌 BGR로 읽히기 때문에 원본과는 색감이 다름. (붉은 이미지가 푸르게 나타남)
+## Object Detection 네트워크 개요
 
-**2. RGB로 변환**
-- .cvtColor(이미지 배열, cv2.COLOR_BGR2RGB) 를 사용.
+<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132175616-4ec7f3fc-2204-49ab-aabf-a2a08caf84d1.GIF width = 400></p>
 
-**3. 파일에 쓰기**
-- .imwrite(‘출력파일명‘, 이미지배열) 을 통해 RGB로 변환된 이미지를 파일에 저장함. (cvtColor 함수 사용하지 않아도 됨.)
+- Feature Extractor Network (VGG, RESNET, INCEPTION 등) : 보통 ImageNet 데이터 세트 기반으로 Pretrained 됨.
+- Object Detection Network : 보통 Pascal VOC 또는 MS COCO 데이터 세트 기반으로 Pretrained 됨.
 
+**Image Resolution, FPS, Detection 성능 상관 관계**
+
+Image resolution이 높을수록 Object Detection 성능은 높아지고 FPS는 낮아진다.
+
+따라서, FPS가 높아야하는 경우에는 Object Detection 성능이 낮아질 수 밖에 없다.
