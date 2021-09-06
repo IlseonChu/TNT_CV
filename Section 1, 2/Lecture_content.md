@@ -125,3 +125,76 @@
 
 - Recall 값에 대응하는 Precision 값 나타낸 그래프.
 - 그래프 아래 면적이 AP 값이고, 여러 오브젝트들의 AP 값을 평균낸 것이 mAP.
+
+* * *
+
+# <Section 2> Object Detection과 Segmentation을 위한 주요 데이터 세트 및 OpenCV 소개
+
+## 주요 데이터 세트
+대부분의 Detection / Segmentation 딥러닝 패키지는 아래 데이터 세트로 Pretrained 되어 배포됨.
+
+**1. PASCAL VOC**
+ : XML Format. 20개 카테고리
+ 
+**2. MS COCO**
+ : json Format. 80개 카테고리
+ 
+**3. Google Open Images**
+ : csv Format. 600개 카테고리
+ 
+## PASCAL VOC
+
+<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132167700-09383ae4-651d-4c88-b4fb-1e9a055a796d.GIF width = 400></p>
+
+PASCAL 2012가 기준이며, Dataset 구조는 다음과 같다.
+- Annotations : XML 포맷이며, 개별 XML파일은 한 개 image에 대한 Annotation 정보를 가지고 있음. 확장자 xml을 제외한 파일명은 image 파일명(확장자 jpg를 제외한)과 동일하게 매핑
+- ImageSet : 어떤 이미지를 train, test, trainval, val에 사용할 것인지에 대한 매핑 정보를 개별 오브젝트별로 파일로 가지고 있음.
+- JPEGImages : Detection과 Segmentation에 사용될 원본 이미지로, Annotations과 짝을 이룸.
+- SegmentationClass : Semantic Segmentation에 사용될 masking 이미지
+- SegmentationObject : Instance Segmentation에 사용될 masking 이미지
+
+## MS COCO
+
+<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132167765-5ce59594-90bb-49bf-b8e9-438fbf877821.GIF width = 400></p>
+- 가장 자주 쓰이는 데이터 세트로, Tensorflow Object Detection API 및 많은 오픈 소스 계열의 주요 패키지들은 COCO Dataset으로 Pretrained 된 모델을 제공함.
+ 
+- 80개 Object Category가 있으며, 300K개의 Image들과 1.5M개의 object들이 존재한다.
+ 
+- 하나의 image에 여러 object가 포함되어 있으며 타 데이터 세트에 비해 난이도가 높은 데이터를 제공함.
+
+**1. 이미지 파일**
+
+ 학습용(train2017), 검증용(val2017), 테스트용(test2017) 파일로 구성되어 있음.
+ 
+**2. JSON Annotation 파일** 
+
+json 포맷인 하나의 파일에 annotation 정보 모두 들어있음.
+
+> info : COCO Dataset 생성 일자등을 가지는 헤더 정보임.
+> 
+> license : 이미지 파일들의 라이선스에 대한 정보
+> 
+> images : 모든 이미지들의 id, 파일명, 이미지 너비, 높이 정보
+> 
+> annotations : 대상 image 및 object id, Segmentation, bounding box, 픽셀 영역등의 상세 정보
+> 
+> categories : 80개 오브젝트 카테고리에 대한 id, 이름, Group을 가짐.
+
+## Open CV
+
+<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132168978-982f0b55-e63f-494b-a219-a1d197963aba.GIF width = 400></p>
+
+- 인텔이 초기 개발을 주도했음
+- Windows, 리눅스, Mac OS X, 안드로이드, i-OS 등 다양한 플랫폼에서 사용 가능
+- 방대한 Computer Vision 라이브러리와 손쉬운 인터페이스 제공이 특징임
+
+**1. 이미지 로딩**
+- .imread('파일명') 을 이용해, 파일을 읽고 numpy array로 변환.
+- 이 때, 파일이 RGB가 아닌 BGR로 읽히기 때문에 원본과는 색감이 다름. (붉은 이미지가 푸르게 나타남)
+
+**2. RGB로 변환**
+- .cvtColor(이미지 배열, cv2.COLOR_BGR2RGB) 를 사용.
+
+**3. 파일에 쓰기**
+- .imwrite(‘출력파일명‘, 이미지배열) 을 통해 RGB로 변환된 이미지를 파일에 저장함. (cvtColor 함수 사용하지 않아도 됨.)
+
