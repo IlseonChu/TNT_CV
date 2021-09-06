@@ -76,7 +76,7 @@
  3. 높은 confidence score를 가진 box와 겹치는 다른 box 간의 IOU 값을 모두 조사하여 특정 threshold 이상인 box를 모두 제거
  4. 남아 있는 box만 선택
  
- **따라서, Confidence score가 높고, IOU Threshold가 낮을수록 많은 Box가 제거됨.**
+ **따라서, Confidence score가 높고, IOU threshold가 낮을수록 많은 Box가 제거됨.**
  
 ## Intersection Over Union (IOU)
 
@@ -88,7 +88,7 @@
 - Pascal VOC : 0.5를 기준으로 True/False
 - MS COCO : (.5:.05:.95)로 IOU 값 달리 적용. 또한 이미지 크기에 따라서도 다른 기준 적용함.
 
-## Confusion Matrix
+## 오차행렬 (Confusion Matrix)
 
 <p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132121554-cc08a761-9be2-4987-8956-82fde5c0e0a6.GIF width = 400></p>
 
