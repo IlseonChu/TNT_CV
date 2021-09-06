@@ -74,20 +74,29 @@ IOU = intersection / union 이므로 maximum, minimum 값 더하고 빼서 구�
 `os.path.join()`으로 상세 파일과 디렉토리를 지정함.
 
 **Annotation 파일**
-<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132192085-0783dc0b-c8b6-4c7c-ae40-175e7cbed9ff.GIF width = 600></p>
+<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132192085-0783dc0b-c8b6-4c7c-ae40-175e7cbed9ff.GIF width = 400></p>
 
 `!cat` 사용해서 annotation 파일을 볼 수 있음.
 
 **3. ElementTree를 이용해 XML 파싱하기**
 <p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132193504-2ead7915-63b7-4f35-8c79-16d23ac5e624.GIF width = 400></p>
 
-**: VOC2012 파일, Annotation 파일, JPEGImages 파일의 경로를 수정하는 코드**
+**: VOC2012 파일, Annotation 파일, JPEGImages 파일의 경로를 변수에 저장하는 코드**
 
 <p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132193521-af9aa4c4-0857-4ef2-90cc-f2d5414a3feb.GIF width = 600></p>
 
+- 변수에 임의의 파일을 parsing 하여 Element를 생성한 뒤에, `tree.getroot()`로 node를 탐색함.
+- filename / size / width / height / bounding box 좌표값 에 대한 정보를 얻게 됨.
 
+**4. Bounding box 시각화**
 
-<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132193548-02763e7c-baa8-46fb-a9e6-accc36b8cc87.GIF width = 600></p>
+<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132193548-02763e7c-baa8-46fb-a9e6-accc36b8cc87.GIF width = 800></p>
+
+- Bounding box 좌표 정보와 Object의 이름이 담긴 `objects_list`를 바탕으로 Bounding box 시각화
+
+**5. 결과**
+
+<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132196380-1f01e428-d4b2-48ed-8919-c0ef22fd5b5d.GIF width = 600></p>
 
 
 * * *
@@ -118,4 +127,4 @@ IOU = intersection / union 이므로 maximum, minimum 값 더하고 빼서 구�
 
 <p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132188633-dc114b0b-cfa8-4aee-8db7-3d5950f2714b.png width = 600></p>
 
-while loop로 모든 frame에서 Object Detection을 수행하고, 캡션으로 프레임 수를 출력함. (Bounding box와 프레임 캡션을 시각화)
+- while loop로 모든 frame에서 Object Detection을 수행하고, 캡션으로 프레임 수를 출력함. (Bounding box와 프레임 캡션을 시각화)
