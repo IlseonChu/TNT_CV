@@ -55,3 +55,14 @@ Object detection 모델에 처음으로 딥러닝을 적용한 모델이라는 �
 - 성능 결과
 <p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132947849-093fb518-1d99-445b-a282-1f4f4acd7e1a.GIF width = 800></p>
 
+* * *
+
+## Fast RCNN
+
+**- 기존 RCNN과의 차별점**
+
+**1. SPP Layer → ROI Pooling Layer**
+- 
+
+
+**2. SVM → Softmax**
