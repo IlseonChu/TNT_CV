@@ -68,7 +68,16 @@
 - for 구문에서, `cv_out[0,0,:,:]`로 전체 xmin, ymin에 대해 iteration 함.
 - downsizing된 이미지를 `rows`와 `cols` 곱해줌으로써 원본 크기로 복원.
 
-<p align = "center"><img src =img src = https://user-images.githubusercontent.com/89925976/132990522-b3bb9a89-b9c9-4218-8b2a-b291bc811719.GIF width = 800></p>
+**<출력 결과>**
+<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132990522-b3bb9a89-b9c9-4218-8b2a-b291bc811719.GIF width = 600></p>
 
+**4. 단일 이미지의 object detection을 함수로 생성**
 
+<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132991614-6e722c31-92bb-4f25-a1c8-d1a2be8e6d55.GIF width = 800></p>
+<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132991616-f62d8015-f152-4cdb-bd4a-f15bc4f54d05.GIF width = 800></p>
 
+- 3에서 했던 로직을 그대로 사용.
+- 추가적으로 Detection 시간 정보만 추가한 함수를 생성.
+
+**5. 다른 이미지에 적용한 결과**
+<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132991819-2cafd5cf-9602-466d-8629-eb3539fdff4e.GIF width = 800></p>
