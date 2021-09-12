@@ -83,6 +83,7 @@ Object detection 모델에 처음으로 딥러닝을 적용한 모델이라는 �
 
 **2. Anchor box**
 <p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132977144-b046b54b-4783-476e-8109-e60d4abf706d.GIF width = 500></p>
+
 - 원본 사이즈 이미지가 Feature Map으로 Down sizing되고 grid point 생성
 - grid point를 기준으로 각 점마다 9개의 anchor box를 그리게 됨.
 
@@ -105,5 +106,7 @@ Object detection 모델에 처음으로 딥러닝을 적용한 모델이라는 �
 
 **4. RPN / Faster RCNN Training**
 - RPN : 각 128개의 positive/negative anchor box로 구성된 mini batch를 sampling해서 계속해서 학습시킴.
-- Faster RCNN : 기본적으로 Alternating Training 구조. 
-> RPN 학습 → Fast RCNN의 Classification/Regression 학습 → 다시 Loss 함수값을 feedback 삼아서 RPN fine tuning → Fast RCNN의 Classification/Regression fine tuning 을 계속 반복함.
+- Faster RCNN : 기본적으로 Alternating Training 구조.
+
+
+: RPN 학습 → Fast RCNN의 Classification/Regression 학습 → 다시 Loss 함수값을 feedback 삼아서 RPN fine tuning → Fast RCNN의 Classification/Regression fine tuning 을 계속 반복함.
