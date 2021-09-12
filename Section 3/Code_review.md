@@ -30,6 +30,8 @@
 
 `for detection in networkOutput[0,0]:`
 
+* * *
+
 ## 이미지 Object Detection 실습 코드
 
 **1. DNN 패키지에서 readNetFromTensorflow()로 tensorflow inference 모델을 로딩**
@@ -81,3 +83,17 @@
 
 **5. 다른 이미지에 적용한 결과**
 <p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132991819-2cafd5cf-9602-466d-8629-eb3539fdff4e.GIF width = 800></p>
+
+* * *
+
+## 비디오 Object Detection 실습 코드
+
+**이미지 Detection 코드와 매우 유사. 다만, frame 별로 같은 작업을 반복한다는 차이점이 존재.**
+
+<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132992698-74a93bbe-7c6a-4cf6-aa45-94f63734099b.GIF width = 800></p>
+<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132992699-0b6d3595-4db3-4521-bcc5-a292ecbf5117.GIF width = 800></p>
+
+- `cap = cv2.VideoCapture(input_path)`로 video를 frame 별로 capture.
+- `codec = cv2.VideoWriter_fourcc(*'XVID')` 로 비디오 생성
+- `get_detected_img` 함수를 사용해 frame 별로 image detection 진행.
+- `.release()`로 bounding box 시각화된 video 파일 생성. 
