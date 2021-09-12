@@ -59,10 +59,15 @@ Object detection 모델에 처음으로 딥러닝을 적용한 모델이라는 �
 
 ## Fast RCNN
 
-**- 기존 RCNN과의 차별점**
+**<기존 RCNN과의 차별점>**
 
 **1. SPP Layer → ROI Pooling Layer**
-- 
-
+-  ROI Pooling : ROI를 고정된 크기(일반적으로 7x7)로 max pooling하는 기법
+-  정수형으로 딱 떨어지는 경우 : 분면으로 나누어 max pooling 적용
+-  그렇지 않은 경우 : image.resize() 등의 method를 활용하여 7x7로 바로 매핑
 
 **2. SVM → Softmax**
+- SVM 대신에 딥러닝 모델 내부에서 Softmax(다중분류함수)를 사용함.
+- 그 결과, Classification과 Regression Loss를 함께 반영한 Multi-task Loss 함수 사용이 가능해짐.
+<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/132976566-31bb96ad-0c89-4991-acea-9f64d8d30b88.png width = 800></p>
+
