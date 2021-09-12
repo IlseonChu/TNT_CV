@@ -68,7 +68,7 @@
 - for 구문에서, `cv_out[0,0,:,:]`로 전체 xmin, ymin에 대해 iteration 함.
 - downsizing된 이미지를 `rows`와 `cols` 곱해줌으로써 원본 크기로 복원.
 
-img src = https://user-images.githubusercontent.com/89925976/132990522-b3bb9a89-b9c9-4218-8b2a-b291bc811719.GIF
+<p align = "center"><img src =img src = https://user-images.githubusercontent.com/89925976/132990522-b3bb9a89-b9c9-4218-8b2a-b291bc811719.GIF width = 800></p>
 
 
 
