@@ -43,4 +43,16 @@
 - 각 anchor box 별로 box 내 object가 무엇인지 클래스 분류
 - GT box 예측을 위해 좌표 수정
 
-### 
+### Multi Scale Feature Map과 Anchor Box의 적용
+- 8732개의 box를 취합한 뒤에 Non-Maximum Supression(NMS)를 적용해 가장 정확도 높은 bbox들만 골라냄
+- feature map 크기가 줄어듦에 따라서 더 큰 object들이 detection됨.
+- 각 anchor box들은 GT object의 classification을 진행하고, bbox regression을 통해 좌표도 수정함.
+
+### Training & Loss function
+**1. Training 방법**
+
+: Bounding box와 겹치는 IOU가 0.5 이상인 Default(Anchor) Box 들의 Classification과 Boudning box Regression을 최적화 학습 수행. 
+
+**2. Loss function**
+<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/135819400-1092488f-7462-4015-89e6-c5f4c742a8d6.png width = 600></p>
+
