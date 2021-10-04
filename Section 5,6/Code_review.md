@@ -428,6 +428,7 @@ result = inference_detector(model, img)
 show_result_pyplot(model, img, result
 ```
 
+
 **5. 테스트용 dataset와 dataloader를 별도로 설정하고 inference 수행**
 ```
 from mmdet.datasets import (build_dataloader, build_dataset,
