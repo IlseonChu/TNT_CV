@@ -16,7 +16,7 @@
 
 <p align = "center"><img src = https://user-images.githubusercontent.com/89925976/140595629-7664aed2-a2a7-4e0b-a13b-ba9a579797b8.png width = 1000></p>
 
-**- Detection 잘한 것은 더 정확하게, Detection 못한 것은 덜 못하게 하는 방향으로 학습된다.**
+**-> Detection 잘한 것은 더 정확하게, Detection 못한 것은 덜 못하게 하는 방향으로 학습된다.**
 
 
 **2. Class imbalance**
@@ -34,7 +34,7 @@
 
 <p align = "center"><img src = https://user-images.githubusercontent.com/89925976/140596142-644d87f9-0d6b-431b-9396-390b78db3504.png width = 1000></p>
 
-**확실하게 Detection된 Object들에 대해서는 매우 작은 가중치를 부여해 더이상 성능개선이 일어나지 않도록 조절함.**
+**-> 확실하게 Detection된 Object들에 대해서는 매우 작은 가중치를 부여해 더이상 성능개선이 일어나지 않도록 조절함.**
 
 
 ### FPN(Feature Pyramid Network)
@@ -44,7 +44,7 @@
 - ResNet(BackBone) : Bottom-up
 - FPN(Neck) : Top-down
 
-**Top-down 방식으로 upsampling을 하면서 skip connection(더 좋은 resolution을 갖는, 즉 더 많은 정보량을 갖는 하위 이미지와 confusion)을 통해 Predict 성능을 높임**
+**-> Top-down 방식으로 upsampling을 하면서 skip connection(더 좋은 resolution을 갖는, 즉 더 많은 정보량을 갖는 하위 이미지와 merge)을 통해 Predict 성능을 높임**
 
 
 ## EfficientDet
@@ -73,19 +73,34 @@
 
 <p align = "center"><img src = https://user-images.githubusercontent.com/89925976/140597300-c6487f30-0bf7-43d6-9d3e-ee8dc964050b.png width = 500></p>
 
-**더 빠른 Inference 속도와 더 높은 예측 성능을 보여줌**
+**-> 더 빠른 Inference 속도와 더 높은 예측 성능을 보여줌**
+
+**<EfficientDet의 Compound Scaling>**
+![image](https://user-images.githubusercontent.com/89925976/140597774-b21efdde-51ae-4d53-8aa8-a091ffb04694.png)
+
+- 거대한 Backbone, 여러 겹의 FPN, Inpunt image size 등의 개별적인 부분들에 집중하는 것은 비효율적임.
+- EfficientNet에서 개별 요소들을 함께 Scaling 하면서 최적 결합을 통한 성능 향상을 보여줌
+- EfficientDet에서도 Backbone, BiFPN, Prediction layer 그리고 입력 이미지 크기를 Scaling 기반으로 최적 결합하여 D0 ~ D7 모델 구성
 
 ### BiFPN
+**: bi-directional FPN**
 
+**1. Cross Scale Connections**
 
+<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/140597578-f5d4efaf-12a3-4b22-a5fe-8565809e24fa.png width = 800></p>
 
+- 원본 피쳐맵, 하위 피처맵 등과의 confusion을 통해 predict의 성능 개선.
+- repeated block의 개수(Depth)는 compound scaling에서 결정됨.
+- PANet의 variation이라고 볼 수 있음.
 
+**2. Weighted Feature Fusion**
 
+**Question : 서로 다른 resolution(feature map size)를 가지는 input feature map들은 Output feature map을 생성하는 데에 기여하는 정도가 다르지 않나?**
 
+**Answer : 그럼 그냥 합치는 게 아니라 가중치를 부여한 뒤에 합치자!**
 
+**<정규화 및 가중치 계산식>**
 
+<p align = "center"><img src = https://user-images.githubusercontent.com/89925976/140597718-d3ffd099-af13-41e3-b9c2-a8184d48edc2.png width = 800></p>
 
-
-
-
-
+**-> BiFPN을 적용하면 파라미터 수는 감소하고 성능은 개선됨.**
